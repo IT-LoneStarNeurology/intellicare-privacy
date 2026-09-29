@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IntelliCare Privacy Policy</title>
+<style>
+  :root {
+    --ink:#14171C; --ink-dim:#5B6270; --line:#e5e2d9; --bg:#f7f5f1; --card:#fffdf8;
+  }
+  @media (prefers-color-scheme:dark) {
+    :root { --ink:#F3F0E6; --ink-dim:#b9bec7; --line:#2a3137; --bg:#14171c; --card:#191e23; }
+  }
+  * { box-sizing:border-box }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    display:flex; justify-content:center; padding:56px 20px;
+  }
+  main { width:100%; max-width:640px; background:var(--card); border:1px solid var(--line);
+    border-radius:14px; padding:36px 40px; }
+  h1 { font-size:24px; font-weight:700; margin:0 0 4px; letter-spacing:-.01em }
+  .updated { color:var(--ink-dim); font-size:14px; margin:0 0 28px }
+  h2 { font-size:17px; font-weight:700; margin:28px 0 8px }
+  p { margin:0 0 12px }
+  a { color:inherit }
+</style>
+</head>
+<body>
+<main>
+  <h1>IntelliCare Privacy Policy</h1>
+  <p class="updated">Last updated: September 28, 2026</p>
+
+  <p>IntelliCare is an internal tool built for LoneStar Neurology's own use and is not available to the public.</p>
+
+  <h2>What the browser extension does</h2>
+  <p>The extension reads the patient chart open in eClinicalWorks and sends that data only to a companion application running on the same computer (127.0.0.1). It does not send data to any third-party server, and it does not run on any website other than LoneStar Neurology's eClinicalWorks instance.</p>
+
+  <h2>What the companion application does</h2>
+  <p>The local companion application uses the chart data to power on-screen documentation assistance. Depending on which features are enabled for a given user, structured, non-patient-identifying summaries (such as a provider name, a rule ID, or a count) may be sent to LoneStar Neurology's own private cloud infrastructure to support practice-level compliance review and analytics. Patient names and clinical narrative text are encrypted before leaving the local network and are only ever decrypted for an authorized manager or administrator reviewing a specific flagged record.</p>
+
+  <h2>Data retention</h2>
+  <p>Chart data stays on the local computer unless a specific rule requires a record to be created for practice review, in which case only that record (not the full chart) is retained.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy can be directed to <a href="mailto:REPLACE_WITH_PRACTICE_EMAIL">REPLACE_WITH_PRACTICE_EMAIL</a>.</p>
+</main>
+</body>
+</html>
