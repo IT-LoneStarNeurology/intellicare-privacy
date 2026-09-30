@@ -6,44 +6,106 @@
 <title>IntelliCare Privacy Policy</title>
 <style>
   :root {
-    --ink:#14171C; --ink-dim:#5B6270; --line:#e5e2d9; --bg:#f7f5f1; --card:#fffdf8;
+    --ink:#14171C; --ink-dim:#5B6270; --ink-faint:#8b9096;
+    --line:rgba(20,23,28,.09);
+    --glass:rgba(255,255,255,.82); --glass-border:rgba(255,255,255,.6);
+    --chrome:rgba(20,23,28,.7); --chrome-ink:#F3F0E6; --chrome-line:rgba(255,255,255,.18);
+    --accent:#2F6FED; --accent-deep:#0E7490; --accent-ink:#F3F0E6; --accent-hover:#2559C4;
+    --sky-1:#f2f6fa; --sky-2:#e6eef4; --sky-3:#f2f6fa;
+    color-scheme: light;
   }
   @media (prefers-color-scheme:dark) {
-    :root { --ink:#F3F0E6; --ink-dim:#b9bec7; --line:#2a3137; --bg:#14171c; --card:#191e23; }
+    :root:not([data-theme="light"]) {
+      --ink:#F3F0E6; --ink-dim:#b9bec7; --ink-faint:#7b818b;
+      --line:rgba(255,255,255,.1);
+      --glass:rgba(30,32,38,.66); --glass-border:rgba(255,255,255,.14);
+      --sky-1:#14171c; --sky-2:#141c22; --sky-3:#14171c;
+      color-scheme: dark;
+    }
   }
-  * { box-sizing:border-box }
+  :root[data-theme="dark"] {
+    --ink:#F3F0E6; --ink-dim:#b9bec7; --ink-faint:#7b818b;
+    --line:rgba(255,255,255,.1);
+    --glass:rgba(30,32,38,.66); --glass-border:rgba(255,255,255,.14);
+    --sky-1:#14171c; --sky-2:#141c22; --sky-3:#14171c;
+    color-scheme: dark;
+  }
+  * { box-sizing:border-box; min-width:0 }
+  html, body { height:100% }
   body {
-    margin:0; background:var(--bg); color:var(--ink);
+    margin:0; color:var(--ink);
+    background:linear-gradient(180deg,var(--sky-1),var(--sky-2) 55%,var(--sky-3));
     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    display:flex; justify-content:center; padding:56px 20px;
   }
-  main { width:100%; max-width:640px; background:var(--card); border:1px solid var(--line);
-    border-radius:14px; padding:36px 40px; }
-  h1 { font-size:24px; font-weight:700; margin:0 0 4px; letter-spacing:-.01em }
-  .updated { color:var(--ink-dim); font-size:14px; margin:0 0 28px }
-  h2 { font-size:17px; font-weight:700; margin:28px 0 8px }
-  p { margin:0 0 12px }
-  a { color:inherit }
+  a { color:var(--accent-hover); text-decoration:underline; text-underline-offset:2px }
+
+  /* ---- header, same chrome as the rest of the product's public pages ---- */
+  header {
+    position:sticky; top:0; z-index:5;
+    background:var(--chrome); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border-bottom:1px solid var(--chrome-line); color:var(--chrome-ink);
+  }
+  .headbar { max-width:760px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px }
+  .wordmark { display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:15px; letter-spacing:.2px; color:inherit; text-decoration:none }
+  .wordmark img { width:24px; height:24px; display:block; flex:none; border-radius:6px }
+  .back-link { font-size:13.5px; font-weight:600; color:inherit; opacity:.82; text-decoration:none }
+  .back-link:hover { opacity:1 }
+
+  /* ---- page shell ---- */
+  main { max-width:760px; margin:0 auto; padding:48px 20px 72px }
+  .doc {
+    background:var(--glass); backdrop-filter:blur(16px) saturate(150%); -webkit-backdrop-filter:blur(16px) saturate(150%);
+    border:1px solid var(--glass-border); border-radius:18px;
+    box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 14px 30px rgba(10,12,16,.1);
+    padding:36px 40px;
+  }
+  @media (max-width:560px) { .doc { padding:28px 22px } }
+
+  .kicker { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent-ink); background:linear-gradient(120deg,var(--accent),var(--accent-deep));
+    padding:5px 12px; border-radius:999px; margin-bottom:16px;
+  }
+  h1 { font-size:26px; font-weight:800; letter-spacing:-.01em; margin:0 0 6px; text-wrap:balance }
+  .updated { color:var(--ink-faint); font-size:13.5px; margin:0 0 26px }
+  h2 { font-size:16.5px; font-weight:700; margin:30px 0 8px; letter-spacing:-.005em }
+  h2:first-of-type { margin-top:26px }
+  p { margin:0 0 12px; color:var(--ink-dim); line-height:1.65 }
+  p:last-child { margin-bottom:0 }
+
+  footer { max-width:760px; margin:0 auto; padding:0 20px 40px; text-align:center; font-size:13px; color:var(--ink-faint) }
 </style>
 </head>
 <body>
+
+<header>
+  <div class="headbar">
+    <a class="wordmark" href="../site/index.html"><img src="data:image/png;base64,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" alt="">IntelliCare</a>
+    <a class="back-link" href="../site/index.html">&larr; Back</a>
+  </div>
+</header>
+
 <main>
-  <h1>IntelliCare Privacy Policy</h1>
-  <p class="updated">Last updated: September 28, 2026</p>
+  <div class="doc">
+    <span class="kicker">Privacy</span>
+    <h1>IntelliCare Privacy Policy</h1>
+    <p class="updated">Last updated: September 28, 2026</p>
 
-  <p>IntelliCare is an internal tool built for LoneStar Neurology's own use and is not available to the public.</p>
+    <p>IntelliCare is an internal tool built for LoneStar Neurology's own use and is not available to the public.</p>
 
-  <h2>What the browser extension does</h2>
-  <p>The extension reads the patient chart open in eClinicalWorks and sends that data only to a companion application running on the same computer (127.0.0.1). It does not send data to any third-party server, and it does not run on any website other than LoneStar Neurology's eClinicalWorks instance.</p>
+    <h2>What the browser extension does</h2>
+    <p>The extension reads the patient chart open in eClinicalWorks and sends that data only to a companion application running on the same computer (127.0.0.1). It does not send data to any third-party server, and it does not run on any website other than LoneStar Neurology's eClinicalWorks instance.</p>
 
-  <h2>What the companion application does</h2>
-  <p>The local companion application uses the chart data to power on-screen documentation assistance. Depending on which features are enabled for a given user, structured, non-patient-identifying summaries (such as a provider name, a rule ID, or a count) may be sent to LoneStar Neurology's own private cloud infrastructure to support practice-level compliance review and analytics. Patient names and clinical narrative text are encrypted before leaving the local network and are only ever decrypted for an authorized manager or administrator reviewing a specific flagged record.</p>
+    <h2>What the companion application does</h2>
+    <p>The local companion application uses the chart data to power on-screen documentation assistance. Depending on which features are enabled for a given user, structured, non-patient-identifying summaries (such as a provider name, a rule ID, or a count) may be sent to LoneStar Neurology's own private cloud infrastructure to support practice-level compliance review and analytics. Patient names and clinical narrative text are encrypted before leaving the local network and are only ever decrypted for an authorized manager or administrator reviewing a specific flagged record.</p>
 
-  <h2>Data retention</h2>
-  <p>Chart data stays on the local computer unless a specific rule requires a record to be created for practice review, in which case only that record (not the full chart) is retained.</p>
+    <h2>Data retention</h2>
+    <p>Chart data stays on the local computer unless a specific rule requires a record to be created for practice review, in which case only that record (not the full chart) is retained.</p>
 
-  <h2>Contact</h2>
-  <p>Questions about this policy can be directed to <a href="mailto:nilay@lonestarneurology.net">Nilay Sheth</a>.</p>
+    <h2>Contact</h2>
+    <p>Questions about this policy can be directed to <a href="mailto:nilay@lonestarneurology.net">Nilay Sheth</a>.</p>
+  </div>
 </main>
+
+<footer>IntelliCare is internal software for LoneStar Neurology and isn't available to the public.</footer>
 </body>
 </html>
